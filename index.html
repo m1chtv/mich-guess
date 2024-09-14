@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mich Guess the Number Game</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #2c3e50, #000);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      color: #fff;
+    }
+    .container {
+      text-align: center;
+      background-color: rgba(44, 62, 80, 0.9);
+      padding: 40px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      width: 300px;
+      animation: pop 0.3s ease-in-out;
+    }
+    @keyframes pop {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #e74c3c;
+    }
+    input {
+      padding: 12px;
+      font-size: 16px;
+      width: 80%;
+      margin-bottom: 10px;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+      background-color: #34495e;
+      color: white;
+      -moz-appearance: textfield;
+    }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #e74c3c;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #c0392b;
+    }
+    #resetBtn {
+      background-color: #3498db;
+      margin-top: 20px;
+    }
+    #resetBtn:hover {
+      background-color: #2980b9;
+    }
+    #feedback {
+      margin-top: 15px;
+      font-size: 1.2em;
+    }
+    #hint {
+      margin-top: 20px;
+      font-size: 1em;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Guess the Number</h1>
+    <p>Guess a number between 1 and 2000:</p>
+    <input type="number" id="guessInput" placeholder="Enter your guess" oninput="validateInput()">
+    <button onclick="checkGuess()">Submit Guess</button>
+    <button id="resetBtn" onclick="resetGame()">Reset Game</button>
+    <p id="feedback"></p>
+    <p id="attempts"></p>
+    <p id="hint"></p>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
